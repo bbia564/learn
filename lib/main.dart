@@ -8,10 +8,14 @@ import 'package:study_records/pages/study_first/study_first_binding.dart';
 import 'package:study_records/pages/study_first/study_first_view.dart';
 import 'package:study_records/pages/study_first/type_details/type_details_binding.dart';
 import 'package:study_records/pages/study_first/type_details/type_details_view.dart';
+import 'package:study_records/pages/study_rember/study_rember_binding.dart';
+import 'package:study_records/pages/study_rember/study_rember_view.dart';
 import 'package:study_records/pages/study_second/study_second_binding.dart';
 import 'package:study_records/pages/study_second/study_second_view.dart';
 import 'package:study_records/pages/study_tab/study_tab_binding.dart';
 import 'package:study_records/pages/study_tab/study_tab_view.dart';
+
+import 'db_study/db_edit.dart';
 
 Color primaryColor = const Color(0xffffbe55);
 Color bgColor = const Color(0xfff8f8f8);
@@ -34,7 +38,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Uss,
-      initialRoute: '/studyTab',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -86,8 +90,10 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> Uss = [
+  GetPage(name: '/', page: () => const StudyRemberView(), binding: StudyRemberBinding()),
   GetPage(name: '/studyTab', page: () => StudyTabPage(), binding: StudyTabBinding()),
   GetPage(name: '/studyFirst', page: () => StudyFirstPage(), binding: StudyFirstBinding()),
+  GetPage(name: '/studyEdit', page: () => const DbEdit()),
   GetPage(name: '/studySecond', page: () => StudySecondPage(), binding: StudySecondBinding()),
   GetPage(name: '/studyAdd', page: () => StudyAddPage(), binding: StudyAddBinding()),
   GetPage(name:'/typeDetails', page: () => TypeDetailsPage(), binding: TypeDetailsBinding())
